@@ -13,9 +13,9 @@ public class BookDAO implements DAO<Book> {
     public BookDAO() {
     }
 
-    public Book get(int id) {
+    public Book get(String sqlWhereValue) {
 
-        String query = "SELECT * FROM BOOKS WHERE id="+ id;
+        String query = "SELECT * FROM BOOKS WHERE " + sqlWhereValue;
         Book book = new Book();
 
         if (executeQueryFromString(query,book)) {

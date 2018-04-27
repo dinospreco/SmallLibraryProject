@@ -1,5 +1,6 @@
 package view;
 
+import controller.MemberCtrl;
 import database.BookDAO;
 import database.MemberDAO;
 import model.Book;
@@ -10,13 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Library {
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 
-        addThreeBooksAndMembers();
-        printAllMembers();
-        printAllBooks();
-
-    }
+        //addThreeBooksAndMembers();
+//        printAllMembers();
+//        printAllBooks();
+//        System.out.println(MemberCtrl.getMemberByIdDocNumber("225").toString());
+//
+//    }
 
     public static void printAllMembers() {
         Map members = new HashMap();

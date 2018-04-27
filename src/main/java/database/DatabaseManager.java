@@ -28,11 +28,9 @@ public class DatabaseManager {
         final String USERNAME = "";
         final String PASSWORD = "";
         final String CONNECTION_STRING = "jdbc:h2:~/database";
-        final String DRIVER = "org.h2.Driver";
 
         try {
 
-            Class.forName(DRIVER);
             connection = DriverManager.getConnection(CONNECTION_STRING,USERNAME,PASSWORD);
 
             createTables();
@@ -40,9 +38,6 @@ public class DatabaseManager {
             return true;
         }
         catch (SQLException e) {
-            e.printStackTrace();
-        }
-        catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 

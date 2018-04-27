@@ -43,22 +43,26 @@ public class BookCheckTest {
 
     @Test
     public void checkPublicationYear_NegativeNumber() {
-        assertEquals("Error: Publication year cannot be negative number", BookCheck.checkPublicationYear(-2));
+        assertEquals("Error: Publication year cannot be negative number", BookCheck.checkPublicationYear("-2"));
     }
 
     @Test
     public void checkPublicationYear_Zero() {
-        assertEquals("0", BookCheck.checkPublicationYear(0));
+        assertEquals("0", BookCheck.checkPublicationYear("0"));
     }
 
     @Test
     public void checkPublication_Future() {
-        assertEquals("Error: Publication year cannot be in the future", BookCheck.checkPublicationYear(2019));
+        assertEquals("Error: Publication year cannot be in the future", BookCheck.checkPublicationYear("2019"));
     }
 
     @Test
     public void checkPublication_CorrectYear() {
-        assertEquals("1991", BookCheck.checkPublicationYear(1991));
+        assertEquals("1991", BookCheck.checkPublicationYear("1991"));
+    }
+    @Test
+    public void checkPublication_ContainsLetters() {
+        assertEquals("Error: Publication year must be number", BookCheck.checkPublicationYear("1991f"));
     }
 
     @Test

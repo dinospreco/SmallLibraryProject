@@ -46,15 +46,23 @@ public class BookCheck {
      * Checking if Publication Year is valid
      * Publication year cannot be less than zero, or in the future.
      */
-    public static String checkPublicationYear(int publicationYear) {
-        if (publicationYear < 0) {
+    public static String checkPublicationYear(String publicationYear) {
+        int publicationYearFromString;
+        if (publicationYear.matches("-?[1-9]\\d*|0")) {
+            publicationYearFromString = Integer.parseInt(publicationYear);
+        }
+        else {
+            return "Error: Publication year must be number";
+        }
+
+        if (publicationYearFromString < 0) {
             return "Error: Publication year cannot be negative number";
         }
-        else if (publicationYear > Calendar.getInstance().get(Calendar.YEAR)) {
+        else if (publicationYearFromString > Calendar.getInstance().get(Calendar.YEAR)) {
             return "Error: Publication year cannot be in the future";
         }
         else {
-            return Integer.toString(publicationYear);
+            return Integer.toString(publicationYearFromString);
         }
     }
 

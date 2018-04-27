@@ -3,7 +3,6 @@ package database;
 import model.Member;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +13,8 @@ public class MemberDAO implements DAO<Member> {
     public MemberDAO() {
     }
 
-    public Member get(int id) {
-        String query = "SELECT * FORM MEMBERS WHERE id = " + id;
+    public Member get(String sqlWhereValue) {
+        String query = "SELECT * FROM MEMBERS WHERE " + sqlWhereValue;
 
         Member member = new Member();
 
@@ -41,7 +40,7 @@ public class MemberDAO implements DAO<Member> {
         String query = "UPDATE MEMBERS SET " +
                 "name = ?," +
                 "id_doc_number = ?," +
-                "mebership_expiration_date = ? " +
+                "membership_expiration_date = ? " +
                 "WHERE id = " + member.getId();
 
         return executeQueryFromString(query,member);
